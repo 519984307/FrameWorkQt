@@ -8,15 +8,19 @@ include(LoadQtConfig)
 set(INC_LIST 
 	 "include/ui_global.h"
 	 "include/singleapplication.h"
-	 
-	 )
+	 "include/basewidget.h" 
+	 "include/basedialog.h"
+	 "include/baseuifunc.h")
 
 
 set(SRC_LIST 
 	"src/singleapplication.cpp"
- 
- 
- )
+	"src/basewidget.cpp"
+	"src/basedialog.cpp"
+	
+	
+	
+	)
 
 set(RES_LIST 
 	

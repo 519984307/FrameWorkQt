@@ -1,0 +1,10 @@
+^F:\WORKSPACE\FRAMEWORKQT\3RDPARTY\LOG4CPP-1.1.2RC3\LOG4CPP\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/WorkSpace/FrameWorkQt/3rdParty/log4cpp-1.1.2rc3/log4cpp -BF:/WorkSpace/FrameWorkQt/3rdParty/log4cpp-1.1.2rc3/log4cpp/build --check-stamp-file F:/WorkSpace/FrameWorkQt/3rdParty/log4cpp-1.1.2rc3/log4cpp/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

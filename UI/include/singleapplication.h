@@ -1,36 +1,43 @@
+/*****************************************************************//**
+ * \file   singleapplication.h
+ * \brief  
+ * 
+ * 
+ * \author shijiaobing
+ * \date   September 2023
+ *********************************************************************/
 #ifndef _SINGLE_APPLICATION_H_
 #define _SINGLE_APPLICATION_H_
 #include "ui_global.h"
 #include <QApplication>
 #include <QLocalServer>
 #include <QLocalSocket>
+#include <QSharedMemory>
 class UI_EXPORT SingleApplication  :public QApplication{
 	Q_OBJECT
 public:
-	explicit SingleApplication(int argc, char** argv);
+	
+	explicit SingleApplication(int argc, char** argv,const QString&uniqueKey);
 
 	bool isRunning();
-	bool sendMessage(const QString& msg);
+
+	bool sendMessage(const QString& message);
 signals:
-	void sglMessage(QString message);
+	void sglSendExistedMessage(QString message);
 
 public slots:
-	void receiveMessage(const QString& msg);
+	void receiveMessage();
 	
-
-
-
-
 protected:
-	void initApplication();
-
-
-
-
+	
+	void initApp();
 
 private:
-	QLocalServer* m_localServer=nullptr;
+	QLocalServer* m_pLocalServer=nullptr;
 	bool m_bIsRunning = false;
+	QString m_strUniqueKey;
+	QSharedMemory m_sharedMemory;
+	static const int m_nTimeOut = 1000;
 };
 
 
